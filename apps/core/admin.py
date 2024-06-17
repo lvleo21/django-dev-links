@@ -8,6 +8,7 @@ from apps.core.models import Account, SocialNetwork, Profile, AccountLink
 
 class ProfileInline(admin.StackedInline):
     model = Profile
+    can_delete = False
 
 
 class SocialNetworkInline(admin.StackedInline):
@@ -44,6 +45,7 @@ class AccountAdmin(UserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
+                    "username",
                     "email",
                     "password1",
                     "password2",
