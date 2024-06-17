@@ -17,7 +17,7 @@ Django DevLinks
             src="{{ request.user.get_profile_avatar_url }} "
             alt="{% trans 'imagem de perfil escolhida pelo usuário' %}"
         >
-        <p>{{ request.user.get_username }}</p>
+        <p>{{ request.user.get_username_display }}</p>
     </div>
     <ul>
         {% for account_link in account_links %}

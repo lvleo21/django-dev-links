@@ -60,6 +60,9 @@ class Account(BaseModel, AbstractBaseUser, PermissionsMixin):
         verbose_name = _("Usuário")
         verbose_name_plural = _("Usuários")
 
+    def __str__(self) -> str:
+        return self.get_username_display()
+
     @property
     def full_name(self):
         full_name = f"{self.first_name or ''} {self.last_name or ''}"
@@ -80,7 +83,7 @@ class Account(BaseModel, AbstractBaseUser, PermissionsMixin):
             return self.profile.avatar.url
         return "https://placehold.co/112x111"
 
-    def get_username(self):
+    def get_username_display(self):
         return f"@{self.username}"
 
 
