@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.conf.urls.static import static
 
 from rest_framework import permissions
 
@@ -11,6 +12,9 @@ from drf_yasg import openapi
 urlpatterns = [
     # Admin
     path("staff/", admin.site.urls),
+
+    # Core
+    path("", include("apps.core.urls")),
 ]
 
 if settings.DEBUG:
@@ -38,4 +42,4 @@ if settings.DEBUG:
             schema_view.with_ui("redoc", cache_timeout=0),
             name="schema-redoc"
         ),
-    ]
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

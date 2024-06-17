@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.core import validators
 
 from apps.core.managers import AccountManager
+from apps.core.choices import SocialNetworkChannelChoices
 
 
 class BaseModel(models.Model):
@@ -67,3 +68,89 @@ class Account(BaseModel, AbstractBaseUser, PermissionsMixin):
             return self.username
 
         return full_name.strip()
+
+    def get_all_socialnetworks(self):
+        return self.socialnetwork_set.all()
+
+    def get_all_accountlinks(self):
+        return self.accountlink_set.all()
+
+    def get_profile_avatar_url(self):
+        if hasattr(self, "profile") and self.profile.avatar:
+            return self.profile.avatar.url
+        return "https://placehold.co/112x111"
+
+    def get_username(self):
+        return f"@{self.username}"
+
+
+class Profile(BaseModel):
+    account = models.OneToOneField(
+        Account,
+        verbose_name=_("Usuário"),
+        on_delete=models.CASCADE
+    )
+    avatar = models.ImageField(
+        verbose_name=_("Avatar"),
+        upload_to="profile/avatars",
+        null=True, blank=True
+    )
+
+    class Meta:
+        verbose_name = _("Perfil")
+        verbose_name_plural = _("Perfis")
+
+    def __str__(self) -> str:
+        return self.account.full_name
+
+
+class SocialNetwork(BaseModel):
+    account = models.ForeignKey(
+        Account,
+        blank=True,
+        verbose_name=_("Usuário"),
+        on_delete=models.CASCADE
+    )
+    channel = models.CharField(
+        verbose_name=_("Canal"),
+        max_length=20,
+        choices=SocialNetworkChannelChoices.choices
+    )
+    url = models.URLField(
+        verbose_name=_("URL"),
+    )
+
+    class Meta:
+        verbose_name = _("Rede social")
+        verbose_name_plural = _("Redes sociais")
+        unique_together = ["account", "channel"]
+
+    def __str__(self) -> str:
+        return f"{self.account.username}/{self.channel}"
+
+    def get_channel(self):
+        return "twitter" if self.channel == "x" else self.channel
+
+
+class AccountLink(BaseModel):
+    account = models.ForeignKey(
+        Account,
+        blank=True,
+        verbose_name=_("Usuário"),
+        on_delete=models.CASCADE
+    )
+    title = models.CharField(
+        verbose_name=_("Título"),
+        max_length=25
+    )
+    url = models.URLField(
+        verbose_name=_("URL"),
+    )
+
+    class Meta:
+        verbose_name = _("Link do usuário")
+        verbose_name_plural = _("Links do usuário")
+        unique_together = ["title", "url", "account"]
+
+    def __str__(self) -> str:
+        return f"{self.account.username}/{self.title}"

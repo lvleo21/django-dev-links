@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background: url("/static/core/assets/bg-mobile.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover; */
+
+    /* background: cover image repeat positon/size */
+    background: url("/static/core/assets/bg-mobile.jpg") no-repeat top center/cover;
+
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+}
+
+#container {
+    width: 360px;
+    /* margin: top right bottom left */
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px
+}
+
+/* Account Links */
+
+#container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+#container ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    /* border: red, green, blue, transparência */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    font-weight: 500;
+    transition: background .2s;
+}
+
+#container ul li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid white;
+}
+
+/* Social networks */
+
+#container #social-networks {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;    
+    font-size: 24px;
+    flex-flow: wrap;
+}
+
+#container #social-networks a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    border-radius: 50%;
+    transition: background .2s;
+}
+
+#container #social-networks a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+footer a{
+    text-decoration: none;
+}

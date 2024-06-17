@@ -1,0 +1,49 @@
+{% extends 'core/layouts/base.html' %}
+{% load static i18n %}
+
+{% block title %}
+Django DevLinks
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div id="container">
+    <div id="profile">
+        <img 
+            src="{{ request.user.get_profile_avatar_url }} "
+            alt="{% trans 'imagem de perfil escolhida pelo usuário' %}"
+        >
+        <p>{{ request.user.get_username }}</p>
+    </div>
+    <ul>
+        {% for account_link in account_links %}
+            <li>
+                <a href="{{ account_link.url }}" target="_blank">
+                    {{ account_link.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div id="social-networks">
+        {% for social_network in social_networks %}
+            <a href="{{ social_network.url }}" target="blank">
+                <ion-icon name="logo-{{ social_network.get_channel }}"></ion-icon>
+            </a>
+        {% endfor %}
+    </div>
+    <footer>
+        <p>
+            {% trans 'Feito com ♥ por' %} <a href="https://github.com/lvleo21">Leonardo Veras</a>
+        </p>
+
+    </footer>
+</div>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}
