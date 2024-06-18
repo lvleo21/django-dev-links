@@ -8,7 +8,7 @@ Este projeto é um agregador de links desenvolvido durante o curso Discover da R
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">Licença</a>
+  <a href="#-licença">Licença</a>
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@ Este projeto é um agregador de links desenvolvido durante o curso Discover da R
 
 <br>
 
-[![Django DevLinks Preview](.github/devlinks-dark-theme.png)](.github/django-devlink-preview.mkv)
+[![Django DevLinks Preview](.github/devlinks-dark-theme.png)](django-devlink-preview.mp4)
 
 ## 🚀 Tecnologias
 
