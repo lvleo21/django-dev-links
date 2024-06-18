@@ -19,7 +19,7 @@ PROJECT_NAME = env("PROJECT_NAME", default="PROJECT NAME")
 
 ENVIRONMENT_FLAG = env("ENVIRONMENT_FLAG", default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 DJANGO_APPS = [
     "django.contrib.admin",
@@ -107,3 +107,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "core.Account"
+
+LOGIN_REDIRECT_URL = LOGOUT_REDIRECT_URL = "/"

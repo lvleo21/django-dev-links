@@ -19,6 +19,10 @@ Django DevLinks
         >
         <p>{{ request.user.get_username_display }}</p>
     </div>
+    <div id="switch">
+        <button></button>
+        <span></span>
+    </div>
     <ul>
         {% for account_link in account_links %}
             <li>
@@ -39,11 +43,11 @@ Django DevLinks
         <p>
             {% trans 'Feito com ♥ por' %} <a href="https://github.com/lvleo21">Leonardo Veras</a>
         </p>
-
     </footer>
 </div>
 
 {% endblock %}
 
 {% block js %}
+<script src="{% static 'core/js/home.js' %}"></script>
 {% endblock %}
