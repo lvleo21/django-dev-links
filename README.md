@@ -17,7 +17,11 @@ Este projeto é um agregador de links desenvolvido durante o curso Discover da R
 
 <br>
 
-[![Django DevLinks Preview](.github/devlinks-dark-theme.png)](django-devlink-preview.mp4)
+<p align="center">
+  <video width="300" controls autoplay loop>
+    <source src=".github/django-devlink-preview.mp4" type="video/mp4">
+  </p>
+</video>
 
 ## 🚀 Tecnologias
 
