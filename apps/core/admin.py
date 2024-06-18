@@ -88,6 +88,7 @@ class AccountLinkAdmin(admin.ModelAdmin):
     raw_id_fields = ["account"]
     date_hierarchy = "created_at"
     list_select_related = ["account"]
+    list_editable = ["title"]
 
     @admin.display(description="URL")
     def display_url(self, instance):

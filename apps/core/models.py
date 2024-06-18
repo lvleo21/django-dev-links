@@ -76,7 +76,7 @@ class Account(BaseModel, AbstractBaseUser, PermissionsMixin):
         return self.socialnetwork_set.all()
 
     def get_all_accountlinks(self):
-        return self.accountlink_set.all()
+        return self.accountlink_set.all().order_by("updated_at")
 
     def get_profile_avatar_url(self):
         if hasattr(self, "profile") and self.profile.avatar:
