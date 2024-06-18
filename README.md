@@ -11,17 +11,7 @@ Este projeto é um agregador de links desenvolvido durante o curso Discover da R
   <a href="#-licença">Licença</a>
 </p>
 
-<p align="center">
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
-</p>
-
-<br>
-
-<p align="center">
-  <video width="300" controls autoplay loop>
-    <source src=".github/django-devlink-preview.mp4" type="video/mp4">
-  </p>
-</video>
+<img alt="Página do django devlinks com tema light" src=".github/devlinks-dark-theme.png" width="100%">
 
 ## 🚀 Tecnologias
 
