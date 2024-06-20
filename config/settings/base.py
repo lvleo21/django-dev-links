@@ -13,7 +13,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = env("DEBUG", default=True, cast=bool)
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 PROJECT_NAME = env("PROJECT_NAME", default="PROJECT NAME")
 
@@ -107,5 +107,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "core.Account"
-
-LOGIN_REDIRECT_URL = LOGOUT_REDIRECT_URL = "/"
