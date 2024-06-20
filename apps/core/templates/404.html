@@ -1,0 +1,39 @@
+{% extends 'core/layouts/base.html' %}
+{% load static i18n %}
+
+{% block title %}
+{% trans 'Página não encontrada' %}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div id="container">
+    <div id="illustration">
+        <img src="{% static 'core/assets/page-not-found-dark.svg' %}"/>
+    </div>
+
+    <div id="switch">
+        <button></button>
+        <span></span>
+    </div>
+
+    <div id="content">
+        <p>{% trans 'Opss!! Não encontramos essá página' %}</p>
+    </div>
+
+    <footer>
+        <p>
+            {% trans 'Feito com ♥ por' %} <a href="https://github.com/lvleo21">Leonardo Veras</a>
+        </p>
+    </footer>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'core/js/home.js' %}"></script>
+{% endblock %}
