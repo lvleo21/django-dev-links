@@ -1,7 +1,11 @@
 from django.urls import path
 
-from .views import HomeTemplateView
+from .views import AccountPageLinkAggregator
 
 urlpatterns = [
-    path("", HomeTemplateView.as_view(), name="home"),
+    path(
+        "@<username>",
+        AccountPageLinkAggregator.as_view(),
+        name="account-page-link-aggregator"
+    ),
 ]

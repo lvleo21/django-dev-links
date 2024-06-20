@@ -18,28 +18,41 @@ Este projeto é um agregador de links desenvolvido durante o curso Discover da R
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - HTML, CSS e JavaScript
-- Pyhone e Django
+- Python e Django
 - PostgreSQL
 
 ## 💻 Projeto
 
 O Django DevLinks é um agregador de links para usar como cartão de visitas online.
 
-- Cadastro dos links através do painel administrativo do django.
+### Cadastro dos links através do painel administrativo do django.
 
 <img alt="Cadastro dos links através do painel administrativo" src=".github/django-admin-account-links.png" width="100%">
 
-- Cadastro das redes sociais através do painel administrativo do django.
+### Cadastro das redes sociais através do painel administrativo do django.
 
 <img alt="Cadastro das redes sociais através do painel administrativo" src=".github/django-admin-account-socialnetworks.png" width="100%">
 
-- Django DevLinks com tema "Dark"
+### Django DevLinks com tema "Dark"
 
 <img alt="Página do django devlinks com tema dark" src=".github/devlinks-dark-theme.png" width="100%">
 
-- Django DevLinks com tema "Light"
+### Django DevLinks com tema "Light"
 
 <img alt="Página do django devlinks com tema light" src=".github/devlinks-light-theme.png" width="100%">
+
+### O perfil pode ser acessado através do USERNAME do usuário.
+
+```bash
+# Exemplo
+http://127.0.0.1:8000/@<nome_do_usuário>
+http://127.0.0.1:8000/@teste123
+```
+<img alt="Página do django devlinks com tema light" src=".github/multiples-profiles.png" width="100%">
+
+### Se o perfil não existir é exibido a página 404.
+
+<img alt="Página do django devlinks com tema light" src=".github/page-not-found.png" width="100%">
 
 ## 🔖 Layout
 

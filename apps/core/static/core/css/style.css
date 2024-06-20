@@ -6,7 +6,7 @@
 
 :root {
     --text-color: white;
-    --bg-url: url("/static/core/assets/bg-desktop.jpg");
+    --bg-url: url("/static/core/assets/bg-mobile.jpg");
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.05);
     --surface-color-hover: rgba(255, 255, 255, 0.02);
@@ -16,12 +16,13 @@
 
 .light {
     --text-color: black;
-    --bg-url: url("/static/core/assets/bg-desktop-light.jpg");
+    --bg-url: url("/static/core/assets/bg-mobile-light.jpg");
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(0, 0, 0, 0.1);
     --switch-bg-url: url("/static/core/assets/Sun.svg");
+    --page404-url: url("/static/core/assets/page-not-found-dark.svg");
 }
 
 body {
@@ -32,18 +33,23 @@ body {
 
     /* background: cover image repeat positon/size */
     background: var(--bg-url) no-repeat top center/cover;
-
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body * {
     font-family: "Inter", sans-serif;
     color: var(--text-color);
+
 }
 
 #container {
-    width: 360px;
-    /* margin: top right bottom left */
-    margin: 56px auto 0px;
+    width: 100%;
+    max-width: 588px;
+    /* margin: top right bottom left */    
     padding: 0 24px;
 }
 
@@ -84,13 +90,19 @@ body * {
     /* Forma de alinhar elemento */
     position: absolute;
     top: 50%;
+    left: 0;
     z-index: 1;
     transform: translateY(-50%);
+
+    animation: slide-out .5s forwards;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: slide-in .5s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -167,12 +179,52 @@ footer a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 600px) {
+/* Page 404 */
+
+#illustration, #content {
+    text-align: center;
+    padding: 24px;
+}
+#illustration img {
+    width: 200px;
+}
+
+#content p {
+    font-size: 30px;
+}
+
+.light #illustration img {
+    content: var(--page404-url);
+}
+
+/* Media Queries */
+
+@media (min-width: 700px) {
     :root {
-        --bg-url: url("/static/core/assets/bg-mobile.jpg");
+        --bg-url: url("/static/core/assets/bg-desktop.jpg");
     }
     
     .light {
-        --bg-url: url("/static/core/assets/bg-mobile-light.jpg");
+        --bg-url: url("/static/core/assets/bg-desktop-light.jpg");
+    }
+}
+
+/* Animations */
+
+@keyframes slide-in {
+    from{
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from{
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }

@@ -14,17 +14,17 @@ Django DevLinks
 <div id="container">
     <div id="profile">
         <img 
-            src="{{ request.user.get_profile_avatar_url }} "
+            src="{{ user.get_profile_avatar_url }} "
             alt="{% trans 'imagem de perfil escolhida pelo usuário' %}"
         >
-        <p>{{ request.user.get_username_display }}</p>
+        <p>{{ user.get_username_display }}</p>
     </div>
     <div id="switch">
         <button></button>
         <span></span>
     </div>
     <ul>
-        {% for account_link in account_links %}
+        {% for account_link in user.get_all_accountlinks %}
             <li>
                 <a href="{{ account_link.url }}" target="_blank">
                     {{ account_link.title }}
@@ -33,7 +33,7 @@ Django DevLinks
         {% endfor %}
     </ul>
     <div id="social-networks">
-        {% for social_network in social_networks %}
+        {% for social_network in user.get_all_socialnetworks %}
             <a href="{{ social_network.url }}" target="blank">
                 <ion-icon name="logo-{{ social_network.get_channel }}"></ion-icon>
             </a>
